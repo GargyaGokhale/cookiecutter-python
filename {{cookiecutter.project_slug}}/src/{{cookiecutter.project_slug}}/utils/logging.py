@@ -1,8 +1,9 @@
 """Logging configuration for {{ cookiecutter.project_name }}."""
+{%- if cookiecutter.use_loguru == "yes" %}
 
 import os
-{%- if cookiecutter.use_loguru == "yes" %}
 import sys
+
 from loguru import logger
 
 
@@ -21,7 +22,9 @@ def get_logger(name: str | None = None):
 # Auto-setup on import
 setup_logging()
 {%- else %}
+
 import logging
+import os
 
 
 def setup_logging(level: str | None = None) -> None:
