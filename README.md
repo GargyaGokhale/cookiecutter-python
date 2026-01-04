@@ -2,18 +2,21 @@
 
 A minimal Python project template for data science, ML, and dashboards.
 
-## Features
+## Tools & Libraries
 
-- **uv** - Fast package management
-- **Ruff** - Linting and formatting
-- **pytest** - Testing
-- **pre-commit** - Git hooks
-- **Docker** - Development container
+### Core
+- [**uv**](https://github.com/astral-sh/uv) — Extremely fast Python package installer and resolver
+- [**Ruff**](https://github.com/astral-sh/ruff) — Fast Python linter and formatter (replaces Black, isort, Flake8)
+- [**pytest**](https://docs.pytest.org/) — Simple and powerful testing framework
+- [**pre-commit**](https://pre-commit.com/) — Git hooks for code quality checks
+- [**python-dotenv**](https://github.com/theskumar/python-dotenv) — Load environment variables from `.env` files
 
 ### Optional
-- **FastAPI** - REST API
-- **NiceGUI** - Web frontend
-- **MkDocs** - Documentation
+- [**Loguru**](https://github.com/Delgan/loguru) — Simple and powerful logging with better defaults
+- [**FastAPI**](https://fastapi.tiangolo.com/) — Modern, high-performance async web framework for APIs
+- [**NiceGUI**](https://nicegui.io/) — Build web UIs with pure Python
+- [**MkDocs**](https://www.mkdocs.org/) — Static site generator for project documentation
+- [**MkDocs Material**](https://squidfunk.github.io/mkdocs-material/) — Beautiful Material Design theme for MkDocs
 
 ## Usage
 
