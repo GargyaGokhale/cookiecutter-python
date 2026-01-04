@@ -34,6 +34,9 @@ cookiecutter /path/to/cookiecutter-python
 | `include_api` | Add FastAPI |
 | `include_frontend` | Add NiceGUI |
 | `include_docs` | Add MkDocs |
+| `auto_setup` | Auto-run `uv sync` and `pre-commit install` |
+| `init_git` | Initialize git and create initial commit |
+| `github_repo_url` | GitHub remote URL (optional, e.g., `git@github.com:user/repo.git`) |
 
 ## Generated Structure
 
@@ -55,9 +58,22 @@ your_project/
 
 ## After Generation
 
+With `auto_setup=yes` and `init_git=yes`, everything is ready:
+
+```bash
+cd your_project
+make run  # That's it!
+
+# If you provided github_repo_url:
+git push -u origin main
+```
+
+With defaults (manual setup):
+
 ```bash
 cd your_project
 uv sync
 uv run pre-commit install
+git init && git add . && git commit -m "Initial commit"
 make run
 ```

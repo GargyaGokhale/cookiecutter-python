@@ -9,6 +9,9 @@
   "use_loguru": ["no", "yes"],
   "include_frontend": ["no", "yes"],
   "include_api": ["no", "yes"],
-  "include_docs": ["no", "yes"]
+  "include_docs": ["no", "yes"],
+  "auto_setup": ["yes", "no"],
+  "init_git": ["yes", "no"],
+  "github_repo_url": ""
 }
 
