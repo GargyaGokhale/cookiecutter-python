@@ -1,0 +1,14 @@
+{
+  "project_name": "Python Project",
+  "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }}",
+  "project_description": "A short description of the project",
+  "author_name": "Your Name",
+  "author_email": "your.email@example.com",
+  "python_version": ["3.12", "3.11", "3.10"],
+  "license": ["MIT", "Apache-2.0", "Proprietary"],
+  "use_loguru": ["no", "yes"],
+  "include_frontend": ["no", "yes"],
+  "include_api": ["no", "yes"],
+  "include_docs": ["no", "yes"]
+}
+
