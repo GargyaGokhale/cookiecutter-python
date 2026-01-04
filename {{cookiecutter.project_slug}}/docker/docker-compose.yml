@@ -1,0 +1,25 @@
+# {{ cookiecutter.project_name }} - Docker Compose (Development)
+services:
+  dev:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.dev
+    container_name: {{ cookiecutter.project_slug }}_dev
+    volumes:
+      - ../src:/app/src
+      {%- if cookiecutter.include_api == "yes" %}
+      - ../api:/app/api
+      {%- endif %}
+      {%- if cookiecutter.include_frontend == "yes" %}
+      - ../frontend:/app/frontend
+      {%- endif %}
+      - ../data:/app/data
+    env_file:
+      - ../.env
+    {%- if cookiecutter.include_api == "yes" %}
+    ports:
+      - "${API_PORT:-8000}:8000"
+    {%- elif cookiecutter.include_frontend == "yes" %}
+    ports:
+      - "${FRONTEND_PORT:-8080}:8080"
+    {%- endif %}

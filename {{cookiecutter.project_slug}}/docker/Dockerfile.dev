@@ -1,0 +1,28 @@
+# {{ cookiecutter.project_name }} - Development Dockerfile
+FROM python:{{ cookiecutter.python_version }}-slim
+
+# Install uv
+COPY --from=ghcr.io/astral-sh/uv:latest /uv /usr/local/bin/uv
+
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    PYTHONPATH="/app/src"
+
+WORKDIR /app
+
+# Install dependencies
+COPY pyproject.toml uv.lock* ./
+RUN uv sync --frozen
+
+# Copy source (volumes override in dev)
+COPY . .
+
+{%- if cookiecutter.include_api == "yes" %}
+CMD ["uv", "run", "uvicorn", "api.main:app", "--reload", "--host", "0.0.0.0", "--port", "8000"]
+EXPOSE 8000
+{%- elif cookiecutter.include_frontend == "yes" %}
+CMD ["uv", "run", "python", "-m", "frontend.app"]
+EXPOSE 8080
+{%- else %}
+CMD ["uv", "run", "python", "-m", "{{ cookiecutter.project_slug }}"]
+{%- endif %}

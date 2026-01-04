@@ -1,0 +1,32 @@
+site_name: {{ cookiecutter.project_name }}
+site_description: {{ cookiecutter.project_description }}
+
+theme:
+  name: material
+  palette:
+    - scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Dark mode
+    - scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Light mode
+  features:
+    - content.code.copy
+    - navigation.instant
+
+nav:
+  - Home: index.md
+  - Getting Started: getting-started.md
+{%- if cookiecutter.include_api == "yes" %}
+  - API: api.md
+{%- endif %}
+{%- if cookiecutter.include_frontend == "yes" %}
+  - Frontend: frontend.md
+{%- endif %}
+
+markdown_extensions:
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - admonition
